@@ -15,8 +15,8 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->fore('user_id')->constrained();
-            $table->fore('camp_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('camp_id')->constrained();
             $table->string('card_number', 20);
             $table->date('expired');
             $table->string('cvc', 3);
