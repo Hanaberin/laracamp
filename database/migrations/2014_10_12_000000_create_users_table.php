@@ -18,9 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('password')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('occupation')->nullable();
+            $table->boolean('is_admin')->default(false);
+            $table->rememberToken(); // on login will updated
+            $table->timestamps(); // will create created_at & updated_at. these fileds will autoflled on addition/change
+            $table->softDeletes(); // for deleted_at
         });
     }
 
